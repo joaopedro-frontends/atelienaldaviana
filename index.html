@@ -124,14 +124,25 @@
             position: relative;
             border-radius: 0.5rem;
         }
+
+        /* --- CORREÇÃO DO FOCO MOBILE ---
+           Mudei height para min-height para flexibilidade e usei 
+           object-position para 'puxar' a imagem para a esquerda (40%),
+           garantindo que as duas mulheres apareçam no mobile.
+        */
         .photo-reveal-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 150%;
+            min-height: 130%; /* Altura maior para permitir o movimento */
             object-fit: cover;
+            object-position: 40% center; /* Ajusta o foco para as duas mulheres */
             will-change: transform;
+        }
+
+        @media (max-width: 640px) {
+             .photo-reveal-container { height: 400px; } /* Ajuste de altura no celular */
         }
 
         .map-container iframe {
@@ -205,7 +216,7 @@
     <section id="sobre" class="py-24 bg-white text-zinc-900 relative">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="relative group photo-reveal-container shadow-2xl">
-                <img src="imagem1.jpeg" alt="Equipe" class="photo-reveal-image" id="parallax-img">
+                <img src="imagem1.jpeg" alt="Ateliê Nalda Viana" class="photo-reveal-image" id="parallax-img">
                 <div class="absolute inset-0 border-8 border-white/20 z-10 pointer-events-none"></div>
             </div>
             <div class="space-y-6">
@@ -215,7 +226,7 @@
                     O Ateliê Nalda Viana nasceu do sonho de criar um espaço onde cada mulher se sinta especial. Localizado na Tijuca, somos dedicados a transformar cada visita em uma experiência acolhedora.
                 </p>
                 <div class="border-l-4 gold-border pl-6 py-2">
-                    <p class="italic font-serif text-xl gold-text font-signature">"Com dedicação e muito amor, transformei minha paixão em realidade"</p>
+                    <p class="italic font-serif text-xl gold-text font-signature">"Com paixão e muito amor, transformei minha paixão em realidade"</p>
                 </div>
             </div>
         </div>
@@ -233,7 +244,10 @@
                     <span class="label-tag label-before">Antes</span>
                     <span class="label-tag label-after">Depois</span>
                 </div>
-                <div class="p-6"><h3 class="text-lg font-bold gold-text uppercase">Retoque e corte</h3></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold gold-text uppercase mb-2">Retoque e corte</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Revitalização dos fios e cores, com o brilho do ruivo encantador.</p>
+                </div>
             </div>
             <div class="compare-card group">
                 <div class="compare-grid">
@@ -242,7 +256,10 @@
                     <span class="label-tag label-before">Antes</span>
                     <span class="label-tag label-after">Depois</span>
                 </div>
-                <div class="p-6"><h3 class="text-lg font-bold gold-text uppercase">Corte & Finalização</h3></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold gold-text uppercase mb-2">Corte</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Harmonização do corte respeitando os traços do rosto.</p>
+                </div>
             </div>
             <div class="compare-card group">
                 <div class="compare-grid">
@@ -251,7 +268,10 @@
                     <span class="label-tag label-before">Antes</span>
                     <span class="label-tag label-after">Depois</span>
                 </div>
-                <div class="p-6"><h3 class="text-lg font-bold gold-text uppercase">Definição</h3></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold gold-text uppercase mb-2">Tratamento Capilar</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Definição e texturização, garantindo selamento e brilho.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -263,17 +283,17 @@
                     <h4 class="text-xl font-bold gold-text uppercase mb-4">Onde Estamos</h4>
                     <p class="text-zinc-400 text-sm mb-4">Rua Conde de Bonfim, 59 - Loja C<br>Tijuca, Rio de Janeiro - RJ</p>
                     <div class="map-container w-full h-64">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.3414840212716!2d-43.2291!3d-22.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5960d1b5a5%3A0x7e7c8e9b6b6b6b6b!2sRua%20Conde%20de%20Bonfim%2C%2059%20-%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1712345678901!5m2!1spt-BR!2sbr" 
+                        <iframe src="https://maps.google.com/?cid=10443936240390275193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
                 <div>
                     <h4 class="text-xl font-bold gold-text uppercase mb-4">Fale Conosco</h4>
-                    <p class="text-zinc-400 text-sm">(21) 3170-1350</p>
-                    <p class="text-zinc-400 text-sm mb-6">(21) 99618-1272</p>
+                    <p class="text-zinc-400 text-sm">(21) 3170-1350 - Telefone</p>
+                    <p class="text-zinc-400 text-sm mb-6">(21) 99618-1272 - Whatsapp</p>
                     <h4 class="text-sm font-bold gold-text uppercase mb-3">Siga-nos</h4>
                     <div class="flex justify-center md:justify-start gap-4">
-                        <a href="#" class="text-zinc-400 hover:gold-text text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/atelienaldaviana" target="_blank" class="text-zinc-400 hover:gold-text text-xl"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-zinc-400 hover:gold-text text-xl"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
@@ -287,10 +307,11 @@
 
     <footer class="bg-black py-8 text-center border-t border-zinc-900">
         <p class="text-zinc-600 text-[10px] tracking-widest uppercase mb-2">© 2026 Ateliê Nalda Viana</p>
-        <p class="text-zinc-500 text-[9px] tracking-widest uppercase">Desenvolvido por <a href="#" class="hover:gold-text transition font-bold">João Pedro Gonçalves</a></p>
+        <p class="text-zinc-500 text-[9px] tracking-widest uppercase">Desenvolvido por <a href="https://www.instagram.com/potter1v4" target="_blank" class="hover:gold-text transition font-bold">João Pedro Gonçalves</a></p>
     </footer>
 
     <script>
+        // Lógica do Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -311,12 +332,27 @@
             });
         });
 
+        // Parallax Ajustado
         window.addEventListener('scroll', function() {
             const img = document.getElementById('parallax-img');
             if(img) {
-                const containerRect = img.parentElement.getBoundingClientRect();
+                const container = img.parentElement;
+                const containerRect = container.getBoundingClientRect();
+                
+                // Só roda se o container estiver visível na tela
                 if (containerRect.top < window.innerHeight && containerRect.bottom > 0) {
-                    img.style.transform = `translateY(${-(containerRect.top * 0.4)}px)`;
+                    // Posição vertical relativa: do topo até o fundo da tela (0 a 1)
+                    const scrollProgress = (window.innerHeight - containerRect.top) / (window.innerHeight + containerRect.height);
+                    
+                    // Velocidade de movimento (quanto menor, mais suave/devagar)
+                    const movementSpeed = 0.15; 
+                    
+                    // Cálculo do offset para que o centro da imagem alinhe com o centro do container
+                    // na metade do scroll do elemento
+                    const parallaxRange = img.offsetHeight - container.offsetHeight;
+                    const offset = -(parallaxRange * movementSpeed) + (parallaxRange * movementSpeed * 2 * scrollProgress);
+                    
+                    img.style.transform = `translateY(${offset}px)`;
                 }
             }
         });
