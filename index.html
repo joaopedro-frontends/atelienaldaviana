@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliê Nalda Viana | Luxo e Cuidado com o Coração</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Pinyon+Script&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .gold-border { border-color: #d9b158; }
+        .gold-text { color: #d9b158; }
+        
+        .font-signature { 
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.6em;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-mosaic {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+            gap: 5px;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+
+        .hero-mosaic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        .compare-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compare-card:hover {
+            border-color: #d9b158;
+            transform: translateY(-5px);
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compare-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .label-tag {
+            position: absolute;
+            bottom: 12px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 12px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .label-before { left: 10px; }
+        .label-after { right: 10px; border: 1px solid #d9b158; color: #d9b158; }
+
+        .photo-reveal-container {
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 0.5rem;
+        }
+        .photo-reveal-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            object-fit: cover;
+            will-change: transform;
+        }
+
+        .map-container iframe {
+            filter: grayscale(1) invert(0.9) contrast(1.2);
+            border-radius: 8px;
+            border: 1px solid rgba(217, 177, 88, 0.2);
+        }
+    </style>
+</head>
+<body class="font-['Montserrat'] bg-black text-zinc-300">
+
+    <header class="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b gold-border/30">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="logo-nalda.jpg" alt="Logo Nalda Viana" class="h-12 w-auto">
+                <div class="font-bold text-xl md:text-2xl tracking-tighter leading-none flex items-center gap-2">
+                    <span class="gold-text font-signature">Ateliê</span> 
+                    <span class="text-white font-light uppercase">Nalda Viana</span>
+                </div>
+            </div>
+            
+            <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-widest text-zinc-300">
+                <li><a href="#inicio" class="hover:gold-text transition">Início</a></li>
+                <li><a href="#sobre" class="hover:gold-text transition">Sobre</a></li>
+                <li><a href="#resultados" class="hover:gold-text transition">Antes e Depois</a></li>
+                <li><a href="catalogo.html" class="hover:gold-text transition">Catálogo</a></li>
+                <li><a href="#contato" class="hover:gold-text transition">Contato</a></li>
+            </ul>
+
+            <a href="https://wa.me/5521996181272" class="bg-[#d9b158] hover:bg-[#c9a148] text-black px-6 py-2 rounded-full text-sm font-bold transition">
+                AGENDAR
+            </a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero-section">
+        <div class="hero-mosaic">
+            <img src="cabecalho.jpeg" alt="Trabalho Nalda 1">
+            <img src="exemplo3.jpeg" alt="Trabalho Nalda 2">
+            <img src="cabecalho3.jpeg" alt="Trabalho Nalda 3">
+            <img src="exemplo2.jpeg" alt="Trabalho Nalda 4">
+        </div>
+        
+        <div class="hero-content text-center">
+            <div class="text-white px-4 max-w-4xl">
+                <h1 class="text-4xl md:text-6xl mb-6 font-['Montserrat'] uppercase tracking-tight leading-tight">
+                    Realçando sua beleza com o <span class="gold-text font-serif italic">coração.</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-24 bg-white text-zinc-900 relative">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative group photo-reveal-container shadow-2xl">
+                <img src="imagem1.jpeg" alt="Equipe Nalda Ateliê" class="photo-reveal-image" id="parallax-img">
+                <div class="absolute inset-0 border-8 border-white/20 z-10 pointer-events-none"></div>
+            </div>
+
+            <div class="space-y-6">
+                <span class="gold-text font-bold tracking-widest uppercase text-sm">Nossa História</span>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter">Cuidado que toca a alma</h2>
+                <p class="text-zinc-600 leading-loose">
+                    O Ateliê Nalda Viana nasceu do meu sonho de criar um espaço onde cada mulher se sinta especial. Liderado pela especialista Nalda Viana, nosso espaço é dedicado a transformar cada visita em uma experiência acolhedora e exclusiva no Rio de Janeiro.
+                </p>
+                <div class="border-l-4 gold-border pl-6 py-2">
+                    <p class="italic font-serif text-xl gold-text font-signature" style="text-transform: none;">"Com paixão e muito amor, transformei minha paixão em realidade"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados" class="py-24 bg-zinc-950 text-white">
+        <div class="container mx-auto px-6 text-center mb-16">
+            <span class="gold-text font-bold tracking-widest uppercase text-xs">Transformações Reais</span>
+            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter mt-2">Antes e <span class="gold-text">depois</span></h2>
+        </div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div class="compare-card group">
+                <div class="compare-grid">
+                    <img src="antes1.jpeg" alt="Antes">
+                    <img src="depois1.jpeg" alt="Depois">
+                    <span class="label-tag label-before">Antes</span>
+                    <span class="label-tag label-after">Depois</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold gold-text uppercase mb-2">Retoque e corte</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">
+                        Correção de cor e preenchimento, substituindo os fios desbotados e a raiz natural por um tom ruivo acobreado vibrante e uniforme.
+                    </p>
+                </div>
+            </div>
+
+            <div class="compare-card group">
+                <div class="compare-grid">
+                    <img src="antes2.jpeg" alt="Antes">
+                    <img src="depois2.jpeg" alt="Depois">
+                    <span class="label-tag label-before">Antes</span>
+                    <span class="label-tag label-after">Depois</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold gold-text uppercase mb-2">Corte</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">
+                        Finalização com escova modeladora para alinear os fios, eliminar o frizz e criar ondas suaves e definidas nas pontas, resultando em um visual sofisticado e polido.   
+                    </p>
+                </div>
+            </div>
+
+            <div class="compare-card group">
+                <div class="compare-grid">
+                    <img src="antes3.jpeg" alt="Antes">
+                    <img src="depois3.jpeg" alt="Depois">
+                    <span class="label-tag label-before">Antes</span>
+                    <span class="label-tag label-after">Depois</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold gold-text uppercase mb-2">Definição e texturização</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">
+                        Uso de técnicas de finalização voltadas para cabelos com curvatura, garantindo que os cachos fiquem selados e com brilho.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-20 bg-black border-t gold-border/20 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 text-center md:text-left">
+                <div class="md:col-span-2">
+                    <h4 class="text-xl font-bold gold-text uppercase mb-4">Onde Estamos</h4>
+                    <p class="text-zinc-400 text-sm mb-4">Rua Conde de Bonfim, 59 - Loja C<br>Tijuca, Rio de Janeiro - RJ</p>
+                    <div class="map-container w-full h-48">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.25330368142!2d-43.2307844!3d-22.9224641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e59392233f5%3A0x6b44585c54c33054!2sRua%20Conde%20de%20Bonfim%2C%2059%20-%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020520-050!5e0!3m2!1spt-BR!2sbr!4v1713190000000!5m2!1spt-BR!2sbr" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold gold-text uppercase mb-4">Fale Conosco</h4>
+                    <p class="text-zinc-400 text-sm">(21) 3170-1350 - Telefone</p>
+                    <p class="text-zinc-400 text-sm mb-6">(21) 99618-1272 - Whatsapp</p>
+                    
+                    <h4 class="text-sm font-bold gold-text uppercase mb-3">Siga-nos</h4>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="https://instagram.com/atelienaldaviana" target="_blank" class="text-zinc-400 hover:gold-text transition text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@atelienaldaviana" target="_blank" class="text-zinc-400 hover:gold-text transition text-xl"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold gold-text uppercase mb-4">Horários</h4>
+                    <p class="text-zinc-400 text-sm">Ter a Sex: 10h às 20h<br>Sábado: 09h às 18h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 text-center border-t border-zinc-900">
+        <p class="text-zinc-600 text-[10px] tracking-widest uppercase mb-2">© 2026 Ateliê Nalda Viana</p>
+        <p class="text-zinc-500 text-[9px] tracking-widest uppercase">
+            Desenvolvido por <a href="https://www.instagram.com/potter1v4" target="_blank" class="hover:gold-text transition font-bold">João Pedro Gonçalves</a>
+        </p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const img = document.getElementById('parallax-img');
+            if(img) {
+                const container = img.parentElement;
+                const containerRect = container.getBoundingClientRect();
+                
+                if (containerRect.top < window.innerHeight && containerRect.bottom > 0) {
+                    const speed = 0.4;
+                    const yPos = -(containerRect.top * speed);
+                    img.style.transform = `translateY(${yPos}px)`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
