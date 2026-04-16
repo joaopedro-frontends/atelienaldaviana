@@ -125,30 +125,32 @@
             border-radius: 0.5rem;
         }
 
-        /* --- CORREÇÃO DO FOCO MOBILE ---
-           Mudei height para min-height para flexibilidade e usei 
-           object-position para 'puxar' a imagem para a esquerda (40%),
-           garantindo que as duas mulheres apareçam no mobile.
-        */
         .photo-reveal-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            min-height: 130%; /* Altura maior para permitir o movimento */
+            min-height: 130%; 
             object-fit: cover;
-            object-position: 40% center; /* Ajusta o foco para as duas mulheres */
+            object-position: 40% center; /* Foco nas duas mulheres */
             will-change: transform;
         }
 
         @media (max-width: 640px) {
-             .photo-reveal-container { height: 400px; } /* Ajuste de altura no celular */
+             .photo-reveal-container { height: 400px; } 
         }
 
-        .map-container iframe {
-            filter: grayscale(1) invert(0.9) contrast(1.2);
+        /* Estilização Colorida/Dourada do Mapa */
+        .map-container {
             border-radius: 8px;
-            border: 1px solid rgba(217, 177, 88, 0.2);
+            border: 1px solid rgba(217, 177, 88, 0.3);
+            overflow: hidden;
+            filter: sepia(0.3) hue-rotate(-15deg) saturate(1.1) contrast(1.1); /* Efeito de cor luxo */
+            transition: filter 0.4s ease;
+        }
+        
+        .map-container:hover {
+            filter: none; /* Volta ao normal ao interagir */
         }
     </style>
 </head>
@@ -226,7 +228,7 @@
                     O Ateliê Nalda Viana nasceu do sonho de criar um espaço onde cada mulher se sinta especial. Localizado na Tijuca, somos dedicados a transformar cada visita em uma experiência acolhedora.
                 </p>
                 <div class="border-l-4 gold-border pl-6 py-2">
-                    <p class="italic font-serif text-xl gold-text font-signature">"Com paixão e muito amor, transformei minha paixão em realidade"</p>
+                    <p class="italic font-serif text-xl gold-text font-signature">"Com dedicação e muito amor, transformei minha paixão em realidade"</p>
                 </div>
             </div>
         </div>
@@ -283,8 +285,10 @@
                     <h4 class="text-xl font-bold gold-text uppercase mb-4">Onde Estamos</h4>
                     <p class="text-zinc-400 text-sm mb-4">Rua Conde de Bonfim, 59 - Loja C<br>Tijuca, Rio de Janeiro - RJ</p>
                     <div class="map-container w-full h-64">
-                        <iframe src="https://maps.google.com/?cid=10443936240390275193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.053224346083!2d-43.22744352378939!3d-22.911409538350175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f82f6fed721%3A0x90f050ad214a8079!2sAteli%C3%AA%20Nalda%20Viana%20-%20Sal%C3%A3o%20de%20beleza%20Tijuca!5e0!3m2!1spt-BR!2sbr!4v1713200000000!5m2!1spt-BR!2sbr" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
                 <div>
@@ -311,7 +315,6 @@
     </footer>
 
     <script>
-        // Lógica do Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -332,26 +335,17 @@
             });
         });
 
-        // Parallax Ajustado
         window.addEventListener('scroll', function() {
             const img = document.getElementById('parallax-img');
             if(img) {
                 const container = img.parentElement;
                 const containerRect = container.getBoundingClientRect();
                 
-                // Só roda se o container estiver visível na tela
                 if (containerRect.top < window.innerHeight && containerRect.bottom > 0) {
-                    // Posição vertical relativa: do topo até o fundo da tela (0 a 1)
                     const scrollProgress = (window.innerHeight - containerRect.top) / (window.innerHeight + containerRect.height);
-                    
-                    // Velocidade de movimento (quanto menor, mais suave/devagar)
                     const movementSpeed = 0.15; 
-                    
-                    // Cálculo do offset para que o centro da imagem alinhe com o centro do container
-                    // na metade do scroll do elemento
                     const parallaxRange = img.offsetHeight - container.offsetHeight;
                     const offset = -(parallaxRange * movementSpeed) + (parallaxRange * movementSpeed * 2 * scrollProgress);
-                    
                     img.style.transform = `translateY(${offset}px)`;
                 }
             }
